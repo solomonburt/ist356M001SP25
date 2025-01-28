@@ -2,11 +2,11 @@
 
 ```
    Room: Hinds 021
-   Time: M/W 3:45pm - 5:05pm
+   Times: M/W 2:15 - 3:35 (M002) 3:45pm - 5:05pm (M001)
 
    Instructor:  Angela Ramnarine-Rieks Ph.D.
    Email: auramnar@syr.edu
-   Office Hours:  M/W 1-2 pm in 323E Hinds Hall
+   Office Hours:  M/W 11-noon in 323E Hinds Hall
 ```
 
 ## Course Description
