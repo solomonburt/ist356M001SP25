@@ -7,3 +7,5 @@ customers = pd.read_csv("https://raw.githubusercontent.com/mafudge/datasets/mast
 
 st.dataframe(customers.head(20))
 st.dataframe(customers.describe())
+
+

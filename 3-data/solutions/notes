@@ -1,0 +1,7 @@
+grade =df.loc['c', 's2']
+print(grade)
+
+twoqs = df.loc['a':'b', 's3']
+
+
+print(df.loc['c':'d', 's2':'s3'])
