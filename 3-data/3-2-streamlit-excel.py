@@ -12,7 +12,7 @@ sheets = list(contents.keys())
 tabs = st.tabs(sheets)
 
 #loop through each tab and write the contents of the sheet to the tab
-for i in range(len(tabs)):
+for i in range(len(tabs)): # loop over each sheet 
     df = contents[sheets[i]]
     tabs[i].dataframe(df)
 

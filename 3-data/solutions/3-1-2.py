@@ -4,14 +4,17 @@ import streamlit as st
 
 link = 'https://raw.githubusercontent.com/mafudge/datasets/master/customers/customers.csv'
 
-st.title('My first DataFrame')
+st.title('My first dataframe')
 
 customers = pd.read_csv(link)
-choice = st.radio('Select Gender:', options= ['M', 'F']) # radio button 
-cols = st.multiselect('Select Columns:', customers.columns) # select multiple columns
-gender_index = customers["Gender"] == choice # filter dataframe based on gender 
-st.dataframe(customers[gender_index][cols]) #display filtered dataframe based on gender selected
 
+radio = st.radio('Show:', options=[ 'Head', 'Tail'], index=0)
+rows = st.number_input('Rows:', min_value=1, max_value=len(customers), value=5)
+st.write(radio)
+if radio == 'Head':
+    st.dataframe(customers.head(rows))
+else:
+    st.dataframe(customers.tail(rows))
 
 
 
