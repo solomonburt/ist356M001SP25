@@ -1,3 +1,17 @@
+'''
+In module `check_functions.py`
+1. copy over the `detect_whale()` function and tests
+2. write function `detect_tipper(tip_pct, tip_pcy_75th_pctile, tip_pct_25_pctile)`
+    - should return either "light", "heavy" or ""
+3. write tests for `detect_tipper()`
+
+in `3-4-2.py`
+1. copy the code from `3-4-1.py`
+2. Calculate the ntiles using `.quantile()`
+3. call the `apply()` function on the row to make new colums `whale` and `tipper`
+
+'''
+
 import streamlit as st
 import pandas as pd
 from check_functions import clean_currency, detect_whale, detect_tipper
