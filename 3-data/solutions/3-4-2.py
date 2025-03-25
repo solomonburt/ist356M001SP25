@@ -11,9 +11,9 @@ in `3-4-2.py`
 3. call the `apply()` function on the row to make new colums `whale` and `tipper`
 
 '''
-
-import streamlit as st
 import pandas as pd
+import streamlit as st
+
 from check_functions import clean_currency, detect_whale, detect_tipper
 
 st.title("Dining Check Data")

@@ -30,10 +30,10 @@ def detect_tipper(tip_pct:float, tip_pct_75th_pctile:float, tip_pct_25th_pctile:
 
 
 
-
+# you see when you import or run
 if __name__=='__main__':
 # tests
-
+# You see when you run only.
     assert clean_currency('$1,000.00') == 1000.00
     assert clean_currency('$1,000') == 1000.00
     assert clean_currency('1,000') == 1000.00
