@@ -1,6 +1,12 @@
 '''
 Use the IoT portal for the URI to search for funny names. Once you understand how to invoke the REST API, write a streamlit to 
 input a name and return the matches in a dataframe. 
+
+curl -X 'GET' \
+  'https://cent.ischool-iot.net/api/funnyname/search?q=an' \
+  -H 'accept: application/json'
+
+
 '''
 
 
@@ -10,13 +16,11 @@ import streamlit as st
 
 st.title("Funny Name Search")
 
-uri = "https://cent.ischool-iot.net/api/funnyname/search"
-search = st.text_input("Search for a name")
+url = "https://cent.ischool-iot.net/api/funnyname/search"
+search = st.text_input("Enter a name to search for funny names:")
 if st.button("Search"):
-    response = requests.get(uri, params={"q": search})
-    response.raise_for_status() #raise an error if the request failed
+    response = requests.get(url, params={"q": search})
     data = response.json()
-    #st.write(data)
-    
+    response.raise_for_status
     df = pd.DataFrame(data)
     st.dataframe(df)

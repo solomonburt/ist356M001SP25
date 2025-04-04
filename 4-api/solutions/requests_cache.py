@@ -19,7 +19,7 @@ def clear_cache(pickle_file):
 
 def save_cache(cache, pickle_file):
     '''This function saves the cache (a Python object like a dictionary) to a pickle file.'''
-    with open(pickle_file, 'wb') as f: # ope file in write-binary mode ('wb')
+    with open(pickle_file, 'wb') as f: # open file in write-binary mode ('wb')
         pickle.dump(cache, f) # serializes the cache object and writes it to the file.
 
 if __name__ == '__main__':
