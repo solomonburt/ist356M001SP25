@@ -27,7 +27,7 @@ def extract_entities(text: str)->dict:
     '''
     url = "https://cent.ischool-iot.net/api/azure/entityrecognition"
     data = {'text': text}
-    headers={'X-API-KEY': 'e4817f2223fc521129078fbf'}
+    headers={'X-API-KEY': 'USE YOUR OWN API KEY'}
     response = requests.post(url, headers=headers, data=data)
     response.raise_for_status()
     return response.json()

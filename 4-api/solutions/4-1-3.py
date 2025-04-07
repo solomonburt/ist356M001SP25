@@ -36,7 +36,7 @@ if st.button("Get Weather"):
         # st.success("Done!")
         url = "https://cent.ischool-iot.net/api/google/geocode"
         querystring = {"location": location}
-        headers ={'X-API-KEY': 'e4817f2223fc521129078fbf'}
+        headers ={'X-API-KEY': 'USE YOUR OWN API KEY'}
         response = requests.get(url, headers=headers, params=querystring)
         response.raise_for_status()
         geocode = response.json()
