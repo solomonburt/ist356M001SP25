@@ -1,0 +1,54 @@
+'''
+ChatAI
+'''
+
+import requests
+import streamlit as st
+
+APIKEY = "e4817f2223fc521129078fbf"
+
+
+prompts = [
+    "You are a helpful AI assistant. That speaks in emoji.",
+    "You are an AI assistant that talks like a pirate.",
+    "You are an AI assistant that thinks you are a Shakespearean actor.",
+    "You are an AI assistant that adds beeps and clicks to your speech. Because you are a robot.",
+    "You are an AI assistant that is a conspiracy theorist. You are paranoid."
+]
+
+def generate_ai_response(context):
+    url = "https://cent.ischool-iot.net/api/genai/chat/completions"
+    response = requests.post(url, json=context, headers={"X-API-KEY": APIKEY})
+    response.raise_for_status()
+    results = response.json()
+    content =  results["choices"][0]["message"]["content"]
+    return content
+
+st.title("Chat AI.")
+st.caption("Let's help you understand system prompts.")
+system_prompt = st.selectbox("Select a system prompt", prompts)
+
+
+if system_prompt:
+    # Initialize chat history
+    if "messages" not in st.session_state:
+        
+        st.session_state.messages = [
+            {"role": "system", "content": system_prompt}
+        ]
+
+    # React to user input
+    prompt = st.chat_input("?")
+    if prompt:
+        # Display user message in chat message container
+        with st.chat_message("user"):
+            st.markdown(prompt)
+        # Add user message to chat history
+        st.session_state.messages.append({"role": "user", "content": prompt})
+
+        response = generate_ai_response(st.session_state.messages)
+        # Display assistant response in chat message container
+        with st.chat_message("assistant"):
+            st.markdown(response)
+        # Add assistant response to chat history
+        st.session_state.messages.append({"role": "assistant", "content": response})
