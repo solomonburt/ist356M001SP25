@@ -16,6 +16,8 @@ prompts = [
     "You are an AI assistant that is a conspiracy theorist. You are paranoid."
 ]
 
+
+
 def generate_ai_response(context):
     url = "https://cent.ischool-iot.net/api/genai/chat/completions"
     response = requests.post(url, json=context, headers={"X-API-KEY": APIKEY})
@@ -31,11 +33,14 @@ system_prompt = st.selectbox("Select a system prompt", prompts)
 
 if system_prompt:
     # Initialize chat history
-    if "messages" not in st.session_state:
-        
-        st.session_state.messages = [
-            {"role": "system", "content": system_prompt}
-        ]
+    st.session_state.messages = [
+        {"role": "system", "content": system_prompt}
+    ]
+
+    # Display chat messages from history on app rerun
+    for message in st.session_state.messages:
+        with st.chat_message(message["role"]):
+            st.markdown(message["content"])
 
     # React to user input
     prompt = st.chat_input("?")

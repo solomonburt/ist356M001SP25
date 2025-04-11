@@ -13,7 +13,7 @@ if file is not None:
     
     question = st.text_input("Enter a question to ask about the data:")
     if question:
-        prompt = 'Witht hte following data:\n'
+        prompt = 'With the following data:\n'
         prompt += df.to_string(index=False)
         prompt += "\n\n"
         prompt += "Answer the following question:\n"    
